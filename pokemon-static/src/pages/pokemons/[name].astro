@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro";
+
+import MainLayout from "../../layouts/MainLayout.astro";
+import PokemonCard from "../../components/pokemons/PokemonCard.astro";
+
+export const getStaticPaths = (() => {
+	return [
+        { params: { name: 'bulbasaur'} },
+        { params: { name: 'charmander' } },
+        { params: { name: 'squirtle' } },
+    ];
+}) satisfies GetStaticPaths;
+
+const { name } = Astro.params;
+---
+
+<MainLayout title="Algun pokemon">
+
+    <section class="mt-10 mx-10 flex flex-col justify-center items-center">
+        <div>
+            <a href="/">Regresar</a>
+            <h1 class="text-3xl capitalize">{ name }</h1>
+        </div>
+
+        <PokemonCard name={name} url=""/>
+    </section>
+</MainLayout>
+
+<style>
+    a {
+        @apply hover:underline text-blue-500;
+    }
+</style>
