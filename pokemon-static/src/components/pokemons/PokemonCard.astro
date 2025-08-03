@@ -4,10 +4,8 @@
      url: string
  }
  const {name, url} = Astro.props;
- const urlObj = new URL(url);
- const id = urlObj.pathname.split('/')[4];
- //opcion más limpia
- const id2 = urlObj.pathname.split('/').at(-2);
+
+ const id = url.split('/').at(-2);
  const urlImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
 ---
