@@ -13,13 +13,14 @@
 ---
 
    <!--class="rounded border flex flex-col justify-center items-center p-2"-->
-<a href={`/pokemons/${name}`}
-   class:list={[
-       `rounded flex flex-col justify-center items-center p-2`,
-       { border: !isBig, },
-   ]}
->
-    <img src={urlImage} alt={"Pokemon con id:" + id}
+    <a href={`/pokemons/${name}`}
+       class:list={[
+           `rounded flex flex-col justify-center items-center p-2`,
+           { border: !isBig, },
+       ]}
+    >
+    <img transition:name={`${name}-image` }
+         src={urlImage} alt={"Pokemon con id:" + id}
          class:list={[
              {
                  'w-64 h-64': isBig, 'w-32 h-32': !isBig
