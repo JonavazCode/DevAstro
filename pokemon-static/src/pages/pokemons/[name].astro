@@ -76,6 +76,12 @@ const urlImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
         const heartOutline = btnFavoritePokemon.querySelector('[data-outline]') as HTMLElement;
         const heartFull = btnFavoritePokemon.querySelector('[data-full]') as HTMLElement;
 
+        const isPokemonFavorite = favoritesPokemon.some((fav) => fav.name === name);
+        if (isPokemonFavorite) {
+            heartOutline.classList.add('hidden');
+            heartFull.classList.remove('hidden');
+        }
+
         const toggleFavorite = () => {
             const isFavorite = favoritesPokemon.some(fav => fav.name === name);
 
